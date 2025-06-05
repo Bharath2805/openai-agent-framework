@@ -1,0 +1,1 @@
+Comprehensive details of recent phishing campaigns, including spoofed domains, targeted industries, email lures, and detection advice, along with source URLs and timestamps.

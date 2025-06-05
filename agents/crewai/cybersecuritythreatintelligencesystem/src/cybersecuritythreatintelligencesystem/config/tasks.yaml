@@ -1,0 +1,68 @@
+cyber_threat_research:
+  description: >
+    Monitor real-time cybersecurity threat intel feeds, dark web forums, public CVE feeds, and security blogs. 
+    Focus on reports published within the last 48 hours. Identify ongoing threat actor campaigns, tools, and TTPs.
+  expected_output: >
+    - List of active threat actors or campaigns (last 48 hours)
+    - Targeted industries or regions
+    - Notable TTPs (Tactics, Techniques, Procedures)
+    - At least 1 newly emerging vulnerability or CVE
+    - Include timestamp and source URL
+  agent: threat_researcher
+
+malware_summary:
+  description: >
+    Analyze recent malware or ransomware campaigns reported in the past 7 days. Focus on delivery methods, CVEs, and mitigation.
+  expected_output: >
+    - Malware family and aliases
+    - Recent exploited CVEs with full identifiers
+    - Delivery method and payload behavior
+    - Indicators of Compromise (IOCs): hashes, IPs, domains
+    - Suggested mitigations
+    - Timestamp and trusted source links
+  agent: malware_analyst
+  context: [cyber_threat_research]
+
+phishing_campaigns_report:
+  description: >
+    Analyze phishing campaigns active in the past 7 days using spoofed domains or fraudulent emails.
+    Focus on how they are targeting users and organizations.
+  expected_output: >
+    - Spoofed domains and tactics
+    - Industries or regions being targeted
+    - Email subject lines or lure examples
+    - How to detect or block them (advice)
+    - Include source URLs and timestamps
+  agent: phishing_watcher
+  context: [cyber_threat_research]
+
+cyber_news_summary:
+  description: >
+    Summarize key cybersecurity news stories from the last 48 hours, including zero-day alerts, major breaches, and patch advisories.
+  expected_output: >
+    - 3 to 5 important cybersecurity events
+    - Government advisories or emergency patches
+    - High-severity CVEs and vendor bulletins
+    - Source name, date, and link
+  agent: news_monitor
+
+daily_security_bulletin:
+  description: >
+    Synthesize all intelligence into a concise and professional cybersecurity bulletin.
+    After compiling the report, IMMEDIATELY use the Discord webhook tool to send the bulletin to the Discord channel.
+  expected_output: >
+    - Threat summary overview (1–2 paragraphs)
+    - Malware and phishing highlights with CVE names and IOCs
+    - Key news alerts and breach stories
+    - Mitigation and prevention advice
+    - Risk level (High / Medium / Low) with justification
+    - Timestamps and source citations
+    - Final markdown file output
+
+    ⚠️ IMPORTANT: You MUST invoke the tool at the end like this:
+    {"content": "<insert your full bulletin text>"}
+
+    Do not skip this.
+  agent: security_report_compiler
+  context: [cyber_threat_research, malware_summary, phishing_campaigns_report, cyber_news_summary]
+  output_file: "output/final_security_bulletin.md"
