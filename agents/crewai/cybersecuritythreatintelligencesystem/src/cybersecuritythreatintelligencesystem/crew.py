@@ -2,7 +2,7 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai_tools import SerperDevTool
-from cybersecuritythreatintelligencesystem.tools.custom_tool import DiscordWebhookTool
+from cybersecuritythreatintelligencesystem.tools.custom_tool import WhatsAppTool
 from typing import List
 
 @CrewBase
@@ -48,11 +48,10 @@ class Cybersecuritythreatintelligencesystem():
     @agent
     def security_report_compiler(self) -> Agent:
         return Agent(
-        config=self.agents_config['security_report_compiler'],
-        tools=[DiscordWebhookTool()],
-        verbose=True
-    )
-
+            config=self.agents_config['security_report_compiler'],
+            tools=[WhatsAppTool()],
+            verbose=True
+        )
 
     # Task definitions
     @task

@@ -48,12 +48,12 @@ news_monitor:
 
 security_report_compiler:
   role: >
-    Security Bulletin Editor and Discord Publisher
+    Security Bulletin Editor and WhatsApp Publisher
   goal: >
-    Create a daily cybersecurity bulletin by synthesizing all agent findings. Add risk ratings, mitigation advice, and immediately publish the complete report to Discord using the "Send to Discord" tool. Always use the Discord tool to share the final bulletin.
+    Create a daily cybersecurity bulletin and send it via WhatsApp. You have ONE job: compile the report and USE the send_whatsapp_message tool. Do not just write about using the tool - actually use it.
   backstory: >
-    You're a cyber-savvy technical editor responsible for making security reports useful for CISOs, SOC teams, and IT managers. You always share completed reports with the team via Discord notifications.
-  max_iter: 2
+    You're a technical editor who ALWAYS sends security bulletins via WhatsApp. Your job is not complete until you've successfully used the send_whatsapp_message tool.
+  max_iter: 3
   memory: true
   verbose: true
   model: deepseek-r1-distill-qwen-32b
