@@ -48,8 +48,8 @@ cyber_news_summary:
 
 daily_security_bulletin:
   description: >
-    Synthesize all intelligence into a concise and professional cybersecurity bulletin.
-    After compiling the report, IMMEDIATELY use the Discord webhook tool to send the bulletin to the Discord channel.
+    Synthesize all intelligence into a concise and professional cybersecurity bulletin optimized for mobile WhatsApp reading.
+    After compiling the report, you MUST use the send_whatsapp_message tool to send the bulletin.
   expected_output: >
     - Threat summary overview (1–2 paragraphs)
     - Malware and phishing highlights with CVE names and IOCs
@@ -57,12 +57,21 @@ daily_security_bulletin:
     - Mitigation and prevention advice
     - Risk level (High / Medium / Low) with justification
     - Timestamps and source citations
-    - Final markdown file output
+    - Final markdown file output formatted for mobile reading
 
-    ⚠️ IMPORTANT: You MUST invoke the tool at the end like this:
-    {"content": "<insert your full bulletin text>"}
+    CRITICAL: After creating the bulletin, you MUST call the send_whatsapp_message tool with the complete bulletin text.
+    
+    Use the tool exactly like this:
+    Tool: send_whatsapp_message
+    Input: {"message": "your complete bulletin text here"}
 
-    Do not skip this.
+    Format the bulletin for WhatsApp with:
+    - Use emojis for better mobile readability
+    - Break long paragraphs into shorter chunks
+    - Use *bold* for emphasis where appropriate
+    - Keep sections clear and scannable on mobile
+
+    Do NOT just mention the tool in your final answer - you must actually USE it.
   agent: security_report_compiler
   context: [cyber_threat_research, malware_summary, phishing_campaigns_report, cyber_news_summary]
   output_file: "output/final_security_bulletin.md"

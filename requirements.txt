@@ -1,0 +1,81 @@
+# Core AI Agent Frameworks
+openai-agents
+crewai
+crewai-tools
+
+# OpenAI API
+openai
+
+# Environment Management
+python-dotenv
+
+# Data Handling and Validation
+pydantic
+typing-extensions
+
+# HTTP Requests and Web Tools
+requests
+httpx
+
+# WhatsApp Integration (Twilio)
+twilio
+
+# Web Search Tools
+serper-dev
+
+# Jupyter Notebook Support
+jupyter
+ipykernel
+ipython
+
+# Data Science and Analysis
+pandas
+numpy
+
+# Async Support
+aiohttp
+
+# Additional Utilities
+python-dateutil
+pytz
+
+# Optional: Additional AI Model Providers
+# Uncomment if you plan to use these services
+# google-generativeai
+# anthropic
+# groq
+
+# Development and Testing (Optional)
+# pytest
+# black
+# flake8
+
+# Security and Cryptography
+cryptography
+
+# File Handling
+pathlib2
+
+# Logging and Monitoring
+structlog
+
+# Configuration Management
+configparser
+
+# Time and Date Handling
+arrow
+
+# Web Scraping (if needed for custom tools)
+beautifulsoup4
+lxml
+
+# JSON and YAML Processing
+pyyaml
+ujson
+
+# Database Support (Optional)
+# sqlalchemy
+
+# API Rate Limiting
+ratelimit
+backoff
